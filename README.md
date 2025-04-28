@@ -50,6 +50,8 @@ Sysmon’s custom configuration also mapped some network activity to MITRE ATT&C
 
 ---
 
+![details](details.png)
+
 ## Lessons Learned
 
 - Endpoint monitoring with Sysmon is highly effective for detecting network scans and lateral movement attempts.
