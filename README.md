@@ -24,7 +24,7 @@ On the Kali Linux machine, an Nmap SYN scan (`-sS`) was launched against the Win
 ```bash
 nmap -sS <Windows-VM-IP>
 ```
-
+![nmap](Lab_1_nmap.png)
 ---
 
 ## Detection via Sysmon
