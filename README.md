@@ -87,6 +87,8 @@ After detecting repeated network scan attempts from the Kali Linux machine (`192
 - Chose to **Block the connection**
 - Applied rule to **Domain, Private, and Public** profiles
 
+![image](Blocked_IP.png)
+
 ### Outcome:
 - All further network traffic from Kali was successfully blocked
 - Further scan attempts resulted in no responses or filtered ports
