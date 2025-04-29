@@ -7,6 +7,8 @@ The goal is to simulate real-world attacker behavior (reconnaissance) and catch 
 
 ---
 
+# Phase 1: Detecting Network Reconnaissance
+
 ## Lab Setup
 
 - **Victim Machine**: Windows 10 VM (Internal Network Only)
@@ -69,8 +71,47 @@ Sysmon’s custom configuration also mapped some network activity to MITRE ATT&C
 
 ---
 
+# Phase 2: Defensive Response — Blocking the Attacker
+
+## Firewall Action Taken
+
+After detecting repeated network scan attempts from the Kali Linux machine (`192.168.20.10`), a custom Windows Firewall rule was created on the victim system to block all inbound connections from the attacker.
+
+### Action Steps:
+- Opened **Windows Defender Firewall with Advanced Security**
+- Created a **Custom Inbound Rule**
+- Applied to traffic from:
+  ```
+  192.168.20.10
+  ```
+- Chose to **Block the connection**
+- Applied rule to **Domain, Private, and Public** profiles
+
+### Outcome:
+- All further network traffic from Kali was successfully blocked
+- Further scan attempts resulted in no responses or filtered ports
+- Confirmed effective blue team detection and response
+
+---
+
+## Lessons Learned
+
+- Endpoint monitoring with Sysmon is highly effective for detecting network scans and lateral movement attempts.
+- Custom Sysmon configurations provide critical threat context (e.g., MITRE ATT&CK mappings) beyond basic event logging.
+- Immediate defensive actions, such as firewall blocking, are essential to limit attacker movement.
+- Real-world blue teamers must monitor for both TCP and UDP scans across standard and non-standard ports.
+
+---
+
+## Future Enhancements
+
+- Automate defensive responses using alert-triggered scripts.
+- Forward Sysmon logs into a local Splunk or SIEM instance for centralized monitoring and alerting.
+- Expand lab to simulate additional attacks (failed login brute force, malware execution, etc.)
+
 ## Author
 
+---
 Joshua Beaton
 
 ---
